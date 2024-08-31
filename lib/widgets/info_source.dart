@@ -18,14 +18,14 @@ class InfoSource extends StatelessWidget {
             indent: 20,
             endIndent: 20,
           ),
-          SizedBox(height: 24),
+          SizedBox(height: 16),
           Text(
             'Sumber Data:',
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 12, color: Colors.white),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 12),
+          SizedBox(height: 8),
           Text(
             'BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)',
             style: TextStyle(fontSize: 12, color: Colors.white),
