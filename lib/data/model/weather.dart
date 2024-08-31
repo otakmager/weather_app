@@ -140,7 +140,7 @@ enum Unit { C, CARD, DEG, EMPTY, F, ICON, KPH, KT, MPH, MS, SEXA }
 class Meta {
   String copyright;
   String website;
-  String urlReference;
+  String? urlReference;
 
   Meta({
     required this.copyright,
