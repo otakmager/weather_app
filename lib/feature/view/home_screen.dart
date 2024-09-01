@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/widgets/list_weather.dart';
 
 import '../../widgets/info_main.dart';
 import '../../widgets/info_source.dart';
@@ -21,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           InfoMain(),
           SizedBox(height: 8),
-          Text('Welcome to the Weather App'),
+          ListWeather(),
+          SizedBox(height: 8),
           InfoSource()
         ],
       ),
