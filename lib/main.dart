@@ -1,9 +1,22 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import 'data/repository/weather_repository.dart';
+import 'data/service/api_service.dart';
 import 'feature/view/home_screen.dart';
+import 'feature/viewmodel/home_view_model.dart';
 
 void main() {
-  runApp(const MyApp());
+  final Dio dio = Dio();
+  final ApiService apiService = ApiService(dio: dio);
+  final WeatherRepository weatherRepository =
+      WeatherRepository(apiService: apiService);
+
+  runApp(ChangeNotifierProvider<HomeViewModel>(
+    create: (context) => HomeViewModel(weatherRepository: weatherRepository),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
