@@ -43,3 +43,13 @@ class Location {
     Location(id: "JawaTimur", name: "Provinsi Jawa Timur"),
   ];
 }
+
+class City {
+  String id;
+  String name;
+
+  City({
+    required this.id,
+    required this.name,
+  });
+}
