@@ -27,28 +27,15 @@ class Location {
   Location.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         name = json['name'];
-
-  static List<Location> example = [
-    Location(id: "Aceh", name: "Provinsi Aceh"),
-    Location(id: "Bali", name: "Provinsi Bali"),
-    Location(id: "BangkaBelitung", name: "Provinsi Bangka Belitung"),
-    Location(id: "Banten", name: "Provinsi Banten"),
-    Location(id: "Bengkulu", name: "Provinsi Bengkulu"),
-    Location(id: "DIYogyakarta", name: "Provinsi DI Yogyakarta"),
-    Location(id: "DKIJakarta", name: "Provinsi DKI Jakarta"),
-    Location(id: "Gorontalo", name: "Provinsi Gorontalo"),
-    Location(id: "Jambi", name: "Provinsi Jambi"),
-    Location(id: "JawaBarat", name: "Provinsi Jawa Barat"),
-    Location(id: "JawaTengah", name: "Provinsi Jawa Tengah"),
-    Location(id: "JawaTimur", name: "Provinsi Jawa Timur"),
-  ];
 }
 
 class City {
+  int index;
   String id;
   String name;
 
   City({
+    required this.index,
     required this.id,
     required this.name,
   });

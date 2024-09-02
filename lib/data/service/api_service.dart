@@ -15,7 +15,11 @@ class ApiService {
     const finalUrl = '$url/provinces';
 
     try {
-      final response = await _dio.get(finalUrl);
+      final response = await _dio.get(finalUrl,
+          options: Options(headers: {
+            'content-type': 'application/json',
+            'Access-Control-Allow-Origin': 'true'
+          }));
       if (response.statusCode == 200) {
         return Locations.fromJson(response.data);
       } else {
@@ -33,7 +37,11 @@ class ApiService {
     final finalUrl = '$url/weather/$provinceId';
 
     try {
-      final response = await _dio.get(finalUrl);
+      final response = await _dio.get(finalUrl,
+          options: Options(headers: {
+            'content-type': 'application/json',
+            'Access-Control-Allow-Origin': 'true'
+          }));
       if (response.statusCode == 200) {
         return Weather.fromJson(response.data);
       } else {

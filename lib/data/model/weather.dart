@@ -38,6 +38,30 @@ class Forecast {
       : domain = json['domain'],
         timestamp = json['timestamp'],
         area = List<Area>.from(json['area'].map((x) => Area.fromJson(x)));
+
+  String getDate() {
+    final year = timestamp.substring(0, 4);
+    final month = timestamp.substring(4, 6);
+    final day = timestamp.substring(6, 8);
+
+    final monthNames = [
+      '',
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec'
+    ];
+
+    return '$day ${monthNames[int.parse(month)]} $year';
+  }
 }
 
 class Area {
@@ -103,7 +127,7 @@ class Parameter {
 }
 
 class Timerange {
-  Type type;
+  String type;
   String datetime;
   List<Value> value;
 
@@ -119,10 +143,8 @@ class Timerange {
         value = List<Value>.from(json['value'].map((x) => Value.fromJson(x)));
 }
 
-enum Type { DAILY, HOURLY }
-
 class Value {
-  Unit unit;
+  String unit;
   String text;
 
   Value({
@@ -134,8 +156,6 @@ class Value {
       : unit = json['unit'],
         text = json['text'];
 }
-
-enum Unit { C, CARD, DEG, EMPTY, F, ICON, KPH, KT, MPH, MS, SEXA }
 
 class Meta {
   String copyright;

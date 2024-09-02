@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../utils/get_weather.dart';
-import '../utils/get_wind_direction.dart';
+import '../../utils/get_weather.dart';
+import '../../utils/get_wind_direction.dart';
 
 class CardWeather extends StatelessWidget {
   const CardWeather({super.key});
@@ -22,14 +22,14 @@ class CardWeather extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Image.asset(
-              getWeatherAssets(0),
+              getWeatherAssets("0"),
               width: 32,
               height: 32,
               filterQuality: FilterQuality.high,
             ),
             const SizedBox(height: 16),
             Text(
-              getWeather(0),
+              getWeather("0"),
               style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
               textAlign: TextAlign.center,
             ),
