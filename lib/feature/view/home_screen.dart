@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../data/model/parameter_weather.dart';
 import '../../data/model/ui_state.dart';
-import '../../data/model/weather.dart';
-import '../../utils/get_specific_parameter.dart';
 import '../../widgets/components/dialog_error.dart';
 import '../../widgets/components/dialog_loading.dart';
 import '../../widgets/components/info_main.dart';
@@ -35,25 +32,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(body: Consumer<HomeViewModel>(
       builder: (context, HomeViewModel viewModel, child) {
-        // WidgetsBinding.instance.addPostFrameCallback((_) {
-        //   if (viewModel.uiStateWeather == UiState.loading &&
-        //       !isDialogLoadingShown) {
-        //     isDialogLoadingShown = true;
-        //     dialogLoading(context);
-        //   } else if (viewModel.uiStateWeather == UiState.error &&
-        //       isDialogLoadingShown) {
-        //     isDialogLoadingShown = false;
-        //     Navigator.of(context, rootNavigator: true).pop();
-        //     dialogError(
-        //       context,
-        //       viewModel.errorInfo?.statusCode,
-        //       viewModel.errorInfo?.message,
-        //       () {
-        //         viewModel.setUiStateWeather(null);
-        //       },
-        //     );
-        //   }
-        // });
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (viewModel.uiStateWeather == UiState.loading &&
+              !isDialogLoadingShown) {
+            isDialogLoadingShown = true;
+            dialogLoading(context);
+          } else if (viewModel.uiStateWeather != UiState.loading &&
+              isDialogLoadingShown) {
+            isDialogLoadingShown = false;
+            Navigator.of(context, rootNavigator: true).pop();
+            if (viewModel.uiStateWeather == UiState.error) {
+              dialogError(
+                context,
+                viewModel.errorInfo?.statusCode,
+                viewModel.errorInfo?.message,
+                () {
+                  viewModel.setUiStateWeather(null);
+                },
+              );
+            }
+          }
+        });
 
         return Builder(builder: (context) {
           if (viewModel.uiStateProvinces == UiState.loading) {
