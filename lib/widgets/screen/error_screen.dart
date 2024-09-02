@@ -35,14 +35,14 @@ class ErrorScreen extends StatelessWidget {
                 showDialog(
                     context: context,
                     builder: (ctx) => AlertDialog(
-                          title: const Text("Detail Error"),
+                          title: const Center(child: Text("Detail Error")),
                           content: SingleChildScrollView(
                               child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               const Icon(Icons.error,
-                                  color: Colors.red, size: 160),
+                                  color: Colors.red, size: 120),
                               const SizedBox(height: 32),
                               Text("Status code: ${statusCode ?? '-'}"),
                               const SizedBox(height: 16),
