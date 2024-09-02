@@ -46,7 +46,7 @@ class ParameterWeather {
   }
 
   String getWindDirection({int index = 0}) {
-    return windDirection?.timerange[index].value[0].text ?? "N/A";
+    return windDirection?.timerange[index].value[1].text ?? "N/A";
   }
 
   String getWindSpeed({int index = 0}) {
