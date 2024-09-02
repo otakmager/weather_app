@@ -58,7 +58,7 @@ String getWeatherAssets(String id, {bool isNight = false}) {
   } else if (id == "63" || id == "80") {
     return 'assets/weathers/8_hujan_lebat.png';
   } else if (id == "95" || id == "97") {
-    return 'assets/weathers/9_petir.png';
+    return 'assets/weathers/9_hujan_petir.png';
   } else {
     return 'assets/weathers/1_cerah_day.png';
   }
