@@ -74,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       InfoMain(
+                        isNight: viewModel.weather!.isNight(),
                         date: viewModel.weather!.getDate(),
                         locations: viewModel.listLocations!,
                         cities: viewModel.listCity!,

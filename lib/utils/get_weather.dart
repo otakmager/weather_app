@@ -28,13 +28,25 @@ String getWeather(String id) {
   }
 }
 
-String getWeatherAssets(String id) {
+String getWeatherAssets(String id, {bool isNight = false}) {
   if (id == "0") {
-    return 'assets/weathers/1_cerah_day.png';
+    if (isNight) {
+      return 'assets/weathers/1_cerah_night.png';
+    } else {
+      return 'assets/weathers/1_cerah_day.png';
+    }
   } else if (id == "1" || id == "2") {
-    return 'assets/weathers/2_cerah_awan_day.png';
+    if (isNight) {
+      return 'assets/weathers/2_cerah_awan_night.png';
+    } else {
+      return 'assets/weathers/2_cerah_awan_day.png';
+    }
   } else if (id == "3") {
-    return 'assets/weathers/3_berawan_day.png';
+    if (isNight) {
+      return 'assets/weathers/3_berawan_night.png';
+    } else {
+      return 'assets/weathers/3_berawan_day.png';
+    }
   } else if (id == "4") {
     return 'assets/weathers/4_berawan_tebal.png';
   } else if (id == "5" || id == "10" || id == "45") {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../data/model/parameter_weather.dart';
-import '../../utils/get_weather.dart';
 import '../../utils/get_wind_direction.dart';
 
 class CardWeather extends StatefulWidget {
@@ -37,8 +36,10 @@ class _CardWeatherState extends State<CardWeather> {
             ),
             const SizedBox(height: 16),
             Image.asset(
-              getWeatherAssets(
-                  widget.parameterWeather.getAssetWeather(index: widget.index)),
+              widget.parameterWeather.getAssetWeather(
+                  index: widget.index,
+                  isNight:
+                      widget.parameterWeather.isNight(index: widget.index)),
               width: 48,
               height: 48,
               filterQuality: FilterQuality.high,

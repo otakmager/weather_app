@@ -39,6 +39,17 @@ class Forecast {
         timestamp = json['timestamp'],
         area = List<Area>.from(json['area'].map((x) => Area.fromJson(x)));
 
+  bool isNight({int index = 0}) {
+    int hour = int.parse(timestamp.substring(8, 10));
+    if (hour >= 0 && hour <= 4) {
+      return true;
+    } else if (hour >= 5 && hour <= 17) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   String getDate() {
     final year = timestamp.substring(0, 4);
     final month = timestamp.substring(4, 6);

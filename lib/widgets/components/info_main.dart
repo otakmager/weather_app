@@ -4,6 +4,7 @@ import '../../data/model/locations.dart';
 import '../../data/model/parameter_weather.dart';
 
 class InfoMain extends StatefulWidget {
+  final bool isNight;
   final String date;
   final List<Location> locations;
   final List<City> cities;
@@ -14,6 +15,7 @@ class InfoMain extends StatefulWidget {
   final void Function(String) getNewCity;
   const InfoMain({
     super.key,
+    required this.isNight,
     required this.date,
     required this.locations,
     required this.cities,
@@ -110,7 +112,7 @@ class _InfoMainState extends State<InfoMain> {
             height: 16,
           ),
           Image.asset(
-            widget.parameterWeather.getAssetWeather(),
+            widget.parameterWeather.getAssetWeather(isNight: widget.isNight),
             width: 128,
             height: 128,
             filterQuality: FilterQuality.high,

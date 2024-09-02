@@ -36,9 +36,9 @@ class ParameterWeather {
     return getWeather(data);
   }
 
-  String getAssetWeather({int index = 0}) {
+  String getAssetWeather({int index = 0, bool isNight = false}) {
     final data = weather?.timerange[index].value[0].text ?? "";
-    return getWeatherAssets(data);
+    return getWeatherAssets(data, isNight: isNight);
   }
 
   String getHumidity({int index = 0}) {
@@ -51,6 +51,22 @@ class ParameterWeather {
 
   String getWindSpeed({int index = 0}) {
     return windSpeed?.timerange[index].value[2].text ?? "N/A";
+  }
+
+  bool isNight({int index = 0}) {
+    String dateTime = weather?.timerange[index].datetime ?? "";
+    if (dateTime.isNotEmpty) {
+      int hour = int.parse(dateTime.substring(8, 10));
+      if (hour >= 0 && hour <= 4) {
+        return true;
+      } else if (hour >= 5 && hour <= 17) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
   }
 
   String getTime({int index = 0}) {
