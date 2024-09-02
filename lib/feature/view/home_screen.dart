@@ -85,7 +85,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         getNewCity: viewModel.getWeather,
                       ),
                       const SizedBox(height: 24),
-                      ListWeather(),
+                      ListWeather(
+                        area:
+                            viewModel.weather!.area[viewModel.idxSelectedCity],
+                      ),
                       const SizedBox(height: 8),
                       const InfoSource()
                     ],
