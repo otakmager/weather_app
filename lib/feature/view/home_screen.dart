@@ -73,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      const SizedBox(height: 48),
                       InfoMain(
                         isNight: viewModel.weather!.isNight(),
                         date: viewModel.weather!.getDate(),
@@ -84,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         setIndexSelectedCity: viewModel.setIdxSelectedCity,
                         getNewCity: viewModel.getWeather,
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 16),
                       ListWeather(
                         area:
                             viewModel.weather!.area[viewModel.idxSelectedCity],

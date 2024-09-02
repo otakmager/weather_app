@@ -75,7 +75,9 @@ class HomeViewModel extends ChangeNotifier {
 
     try {
       final data = await weatherRepository.getLocations();
-      _listLocations = data.data;
+      List<Location>? temp = data.data;
+      // delete "Prov. Indonesia" because cannot be used for getWeather()
+      _listLocations = temp.removeLast() as List<Location>?;
       setUiStateProvinces(UiState.success);
     } on CustomException catch (e) {
       _errorInfo = FailureModel(e.statusCode, e.message);
